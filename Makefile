@@ -21,7 +21,13 @@ bin/busca.o: src/busca.cpp
 bin/indice.o: src/indice.cpp
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
-bin/main: bin/indice.o bin/busca.o src/main.cpp
+bin/vetor.o: src/vetor.cpp
+	$(CXX) $(CXX_FLAGS) -c $^ -o $@
+
+bin/leitor.o: src/leitor.cpp
+	$(CXX) $(CXX_FLAGS) -c $^ -o $@
+
+bin/main: bin/indice.o bin/busca.o bin/vetor.o bin/leitor.o src/main.cpp
 	$(CXX) $(CXX_FLAGS) $^ -o $@
 
 bin/teste: bin/fila.o src/teste.cpp
