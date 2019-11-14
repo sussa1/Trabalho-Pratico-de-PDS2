@@ -8,10 +8,10 @@
 class Busca {
     public:
         //Constrói a estrutura de busca para os arquivos do diretório 'dir'
-        Busca(std::string dir);
+        Busca(std::map<std::string, std::map<std::string, int> > documentos);
 
-        //Retorna as palavras mais relevantes para a busca 'query'
-        std::vector<std::string> obterRelevanciaPalavras(std::string query);
+        //Retorna os documentos mais relevantes para a busca 'query'
+        std::vector<std::string> obterRelevanciaQuery(std::string query);
 
     private:
         Indice _indice;

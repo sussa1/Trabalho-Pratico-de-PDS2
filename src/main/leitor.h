@@ -10,8 +10,8 @@ class Leitor {
         //Lê os arquivos do diretório indicado por 'dir'
         Leitor(std::string dir);
 
-        // Retorna o frequencia das palavras nos arquivos lidos
-        std::vector<std::map<std::string, int> > obterFrequenciaPalavras() const;
+        // Retorna o frequencia das palavras nos arquivos lidos por documento (map[documentp][palavra] = frequencia)
+        std::map<std::string, std::map<std::string, int> > obterFrequenciaPalavras() const;
     private:
 };
 
