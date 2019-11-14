@@ -30,12 +30,10 @@ Indice::Indice(std::map<std::string, std::map<std::string, int> > documentos) {
     }
 }
 
-//Obtem a importância de 'palavra' no documento 'documento'
 Vetor Indice::obterVetorDocumento(std::string documento) const {
     return _vetores.at(documento);
 }
 
-//Obtem a relação entre a coordenada do vetor e a palavra que a representa
 Vetor Indice::construirVetorQuery(std::string query) {
     query = Util::TransformarEmMinusculo(query);
     query = Util::RemoverCaracteresEspeciaisString(query);

@@ -8,10 +8,10 @@
 
 class Indice {
     public:
-        //Constrói o índice com base nos arquivos do diretório indicado por 'dir'
+        //Constrói o índice com base na relação documento -> {palavra -> frequencia}
         Indice(std::map<std::string, std::map<std::string, int> > documentos);
 
-        //Obtem a importância de 'palavra' no documento 'documento'
+        //Obtem o vetor 'palavra' no documento 'documento'
         Vetor obterVetorDocumento(std::string documento) const;
 
         //Cria o vetor da query, adicionando suas palavras aos vetores do documento
