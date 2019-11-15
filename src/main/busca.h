@@ -3,12 +3,13 @@
 
 #include <iostream>
 #include <vector>
-#include "indice.h"
+#include "indexador.h"
+#include "indice_invertido.h"
 
 class Busca {
     public:
-        //Constrói a estrutura de busca com base na relação documento -> {palavra -> frequencia}
-        Busca(std::map<std::string, std::map<std::string, int> > documentos);
+        //Constrói a estrutura de busca com base no indice invertido
+        Busca(IndiceInvertido indiceInvertido, Indexador& indexador);
 
         //Retorna os documentos ordenados por relevancia para a busca 'query'
         /*
@@ -21,7 +22,7 @@ class Busca {
         std::vector<std::string> obterRelevanciaQuery(std::string query);
 
     private:
-        Indice _indice;
+        Indexador& _indexador;
 };
 
 #endif //TRABALHO_PRATICO_PDS_2_SRC_BUSCA_H

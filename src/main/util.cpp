@@ -25,7 +25,12 @@ std::vector<std::string> Util::SepararStringPorPalavra(std::string s) {
     while(stream) {
         std::string palavra;
         stream >> palavra;
-        palavras.push_back(palavra);
+        while(s.find(' ') != std::string::npos) {
+            s = s.erase(s.find(' '));
+        }
+        if(s.size() > 0) {
+            palavras.push_back(palavra);
+        }
     }
     return palavras;
 }

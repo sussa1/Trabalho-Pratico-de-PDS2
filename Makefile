@@ -15,7 +15,13 @@ teste: bin/teste
 	clear
 	./bin/teste
 
-bin/indice.o: src/main/indice.cpp
+bin/indexador.o: src/main/indexador.cpp
+	$(CXX) $(CXX_FLAGS) -c $^ -o $@
+
+bin/indice_invertido.o: src/main/indice_invertido.cpp
+	$(CXX) $(CXX_FLAGS) -c $^ -o $@
+
+bin/documento.o: src/main/documento.cpp
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
 bin/busca.o: src/main/busca.cpp
@@ -27,12 +33,12 @@ bin/vetor.o: src/main/vetor.cpp
 bin/leitor.o: src/main/leitor.cpp
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
-bin/util.o: stc/main/util.cpp
+bin/util.o: src/main/util.cpp
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
-bin/main: bin/indice.o bin/busca.o bin/vetor.o bin/leitor.o src/main/main.cpp
+bin/main: bin/documento.o bin/indice_invertido.o bin/indice.o bin/busca.o bin/vetor.o bin/leitor.o src/main/main.cpp
 	$(CXX) $(CXX_FLAGS) $^ -o $@
 
-bin/teste: bin/indice.o bin/busca.o bin/vetor.o bin/leitor.o bin/util.o src/test/teste.cpp
-	$(CXX) $(CXX_FLAGS) -I include/ $^ -o $@
+bin/teste: bin/util.o src/teste/teste.cpp src/teste/teste_util.cpp
+	$(CXX) $(CXX_FLAGS) -I include/ -I src/main/ $^ -o $@
 	
