@@ -24,6 +24,7 @@ class IndiceInvertido {
     private:
         std::map<std::string, std::set<Documento> > _relacaoPalavraDocumento;
         int _numDocumentos;
+        friend class Teste;
 };
 
 #endif //TRABALHO_PRATICO_PDS_2_SRC_INDICE_INVERTIDO_H

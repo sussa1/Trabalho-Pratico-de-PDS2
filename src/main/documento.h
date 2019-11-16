@@ -1,5 +1,5 @@
-#ifndef TRABALHO_PRATICO_PDS_2_SRC_BUSCA_H
-#define TRABALHO_PRATICO_PDS_2_SRC_BUSCA_H
+#ifndef TRABALHO_PRATICO_PDS_2_SRC_DOCUMENTO_H
+#define TRABALHO_PRATICO_PDS_2_SRC_DOCUMENTO_H
 
 #include <iostream>
 #include <vector>
@@ -22,12 +22,13 @@ class Documento {
         std::vector<std::string> obterPalavras() const;
 
         //Para definir a ordenacao de documentos, ordena os documentos pelo id
-        bool operator < (Documento& d) const;
+        bool operator< (const Documento& d) const;
 
     private:
         int _id;
         std::string _nome;
         std::vector<std::string> _palavras;
+        friend class Teste;
 };
 
-#endif //TRABALHO_PRATICO_PDS_2_SRC_BUSCA_H
+#endif //TRABALHO_PRATICO_PDS_2_SRC_DOCUMENTO_H

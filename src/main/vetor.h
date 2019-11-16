@@ -1,6 +1,8 @@
 #ifndef TRABALHO_PRATICO_PDS_2_SRC_VETOR_H
 #define TRABALHO_PRATICO_PDS_2_SRC_VETOR_H
 
+#include <vector>
+
 class Vetor {
     public:
         //Constrói o vetor com a dimensão dada e coordenadas 0
@@ -15,6 +17,8 @@ class Vetor {
         //Retorna a norma do vetor
         double norma() const;
     private:
+        std::vector<double> _valoresVetor;
+        friend class Teste;
 };
 
 #endif //TRABALHO_PRATICO_PDS_2_SRC_VETOR_H

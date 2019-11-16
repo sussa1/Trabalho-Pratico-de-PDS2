@@ -23,10 +23,10 @@ Indexador::Indexador(IndiceInvertido& indiceInvertido) : _indiceInvertido(indice
         for(Documento documento : documentosPalavra) {
             //Se é a primeira vez computando esse documento, inicializa seu vetor
             if(_vetoresDocumentos.find(documento.obterIdDocumento()) == _vetoresDocumentos.end()) {
-                _vetoresDocumentos[documento.obterIdDocumento()] = Vetor(_numeroTotalPalavras);
+                _vetoresDocumentos.insert({documento.obterIdDocumento(), Vetor(_numeroTotalPalavras)});
             }
 
-            Vetor& vetorDocumento = _vetoresDocumentos[documento.obterIdDocumento()];
+            Vetor& vetorDocumento = _vetoresDocumentos.at(documento.obterIdDocumento());
             
             //Realiza a formula para a coordenada da palavra nesse documento
             //W(d_j, P_x) = tf(d_j, P_x) × idf(P_x)

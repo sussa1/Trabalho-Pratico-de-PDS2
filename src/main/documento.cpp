@@ -25,6 +25,6 @@ int Documento::obterIdDocumento() const {
     return _id;
 }
 
-bool Documento::operator < (Documento& d) const{
+bool Documento::operator< (const Documento& d) const{
     return _id < d.obterIdDocumento();
 }

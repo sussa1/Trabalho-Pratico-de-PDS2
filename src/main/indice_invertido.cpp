@@ -3,7 +3,7 @@
 #include <map>
 #include <set>
 #include "indice_invertido.h"
-#include "documento.h";
+#include "documento.h"
 
 IndiceInvertido::IndiceInvertido(std::vector<Documento>& documentos) {
     _numDocumentos = 0;

@@ -23,6 +23,7 @@ class Indexador {
         IndiceInvertido& _indiceInvertido;
         int _numeroDocumentos;
         int _numeroTotalPalavras;
+        friend class Teste;
 };
 
 #endif //TRABALHO_PRATICO_PDS_2_SRC_INDEXADOR_H

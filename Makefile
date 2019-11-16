@@ -39,6 +39,6 @@ bin/util.o: src/main/util.cpp
 bin/main: bin/documento.o bin/indice_invertido.o bin/indice.o bin/busca.o bin/vetor.o bin/leitor.o src/main/main.cpp
 	$(CXX) $(CXX_FLAGS) $^ -o $@
 
-bin/teste: bin/util.o src/teste/teste.cpp src/teste/teste_util.cpp
+bin/teste: bin/vetor.o bin/util.o bin/documento.o bin/indice_invertido.o bin/indexador.o src/teste/teste_util.cpp src/teste/teste_documento.cpp src/teste/teste_indice_invertido.cpp src/teste/teste_indexador.cpp src/teste/teste.cpp
 	$(CXX) $(CXX_FLAGS) -I include/ -I src/main/ $^ -o $@
 	

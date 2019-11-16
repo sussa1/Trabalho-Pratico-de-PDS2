@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <vector>
 #include <sstream>
+#include <functional>
 
 std::string Util::RemoverCaracteresEspeciaisString(std::string s) {
     s.erase(std::remove_if(s.begin(), s.end(),
@@ -25,10 +26,10 @@ std::vector<std::string> Util::SepararStringPorPalavra(std::string s) {
     while(stream) {
         std::string palavra;
         stream >> palavra;
-        while(s.find(' ') != std::string::npos) {
-            s = s.erase(s.find(' '));
+        while(palavra.find(' ') != std::string::npos) {
+            palavra = palavra.erase(palavra.find(' '));
         }
-        if(s.size() > 0) {
+        if(!palavra.empty()) {
             palavras.push_back(palavra);
         }
     }

@@ -35,17 +35,17 @@ TEST_SUITE("Util") {
     }
     SUBCASE("Transformando string totalmente maiscula") {
         std::string s = "UMA STRING MAIUSCULA";
-        std::string resposta = Util::RemoverCaracteresEspeciaisString(s);
+        std::string resposta = Util::TransformarEmMinusculo(s);
         CHECK(resposta == "uma string maiuscula");
     }
     SUBCASE("Transformando string totalmente minuscula") {
         std::string s = "essa string contem apenas caracteres minusculos";
-        std::string resposta = Util::RemoverCaracteresEspeciaisString(s);
+        std::string resposta = Util::TransformarEmMinusculo(s);
         CHECK(resposta == s);
     }
     SUBCASE("Transformando string com caracteres especiais") {
         std::string s = "String Mista, Com Caracteres. Especiais?";
-        std::string resposta = Util::RemoverCaracteresEspeciaisString(s);
+        std::string resposta = Util::TransformarEmMinusculo(s);
         CHECK(resposta == "string mista, com caracteres. especiais?");
     }
   }
@@ -70,7 +70,7 @@ TEST_SUITE("Util") {
         CHECK(resposta[1] == "separada");
         CHECK(resposta[2] == "por");
         CHECK(resposta[3] == "muitos");
-        CHECK(resposta[4] == "espaços");
+        CHECK(resposta[4] == "espacos");
     }
     SUBCASE("Separar string de uma palavra") {
         std::string s = "palavra";
