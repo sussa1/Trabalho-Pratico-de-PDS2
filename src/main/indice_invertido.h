@@ -10,7 +10,7 @@
 class IndiceInvertido {
     public:
         //Constroi o indice invertido com base nos documentos e suas palavras
-        IndiceInvertido(std::vector<Documento>& documentos);
+        IndiceInvertido(std::vector<Documento> documentos);
 
         //Retorna os documentos em que 'palavra' aparece
         std::vector<Documento> obterDocumentosPalavra(std::string palavra) const;

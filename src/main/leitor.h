@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include "indice_invertido.h"
+#include "documento.h"
 
 class Leitor {
     public:
@@ -16,6 +17,11 @@ class Leitor {
 
 
     private:
+        //Lê o documento
+        Documento lerDocumento(std::string caminho, std::string nomeArquivo);
+
+        int _id;
+        std::vector<Documento> _documento;
 };
 
 #endif //TRABALHO_PRATICO_PDS_2_SRC_LEITOR_H

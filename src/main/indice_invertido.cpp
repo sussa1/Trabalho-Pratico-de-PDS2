@@ -5,7 +5,7 @@
 #include "indice_invertido.h"
 #include "documento.h"
 
-IndiceInvertido::IndiceInvertido(std::vector<Documento>& documentos) {
+IndiceInvertido::IndiceInvertido(std::vector<Documento> documentos) {
     _numDocumentos = 0;
     for(Documento documento : documentos) {
         for(std::string palavra : documento.obterPalavras()) {
