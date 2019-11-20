@@ -13,7 +13,7 @@ class Leitor {
         Leitor(std::string dir);
 
         // Retorna o indice invertido das palavras lidas dos documentos
-        IndiceInvertido obterIndiceInvertido() const;
+        IndiceInvertido& obterIndiceInvertido() const;
 
 
     private:

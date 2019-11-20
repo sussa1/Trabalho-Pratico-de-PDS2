@@ -3,22 +3,24 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <experimental/filesystem>
+#include "filesystem.hpp"
 #include "leitor.h"
 #include "documento.h"
 #include "util.h"
 
+using namespace ghc;
+
 Leitor::Leitor(std::string dir) {
     _id = 0;
     _documento.clear();
-    for(const auto& entrada : std::experimental::filesystem::directory_iterator(dir)) {
-        if(std::experimental::filesystem::is_directory(entrada.status())) {
+    for(const auto& entrada : filesystem::directory_iterator(dir)) {
+        if(filesystem::is_directory(entrada.status())) {
             _documento.push_back(lerDocumento(entrada.path(), entrada.path().filename()));
         }
     }
 }
 
-IndiceInvertido Leitor::obterIndiceInvertido() const {
+IndiceInvertido& Leitor::obterIndiceInvertido() const {
     IndiceInvertido indiceInvertido = IndiceInvertido(_documento);
     return indiceInvertido;
 }

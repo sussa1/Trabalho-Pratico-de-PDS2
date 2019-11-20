@@ -5,6 +5,7 @@
 #include <vector>
 #include "indexador.h"
 #include "indice_invertido.h"
+#include "documento.h"
 
 class Busca {
     public:
@@ -19,7 +20,7 @@ class Busca {
 
             Depois de calcular todas relevancias basta ordenar elas e retornar a lista por ordem decrescente de nomes de documentos
         */
-        std::vector<std::string> obterRelevanciaQuery(std::string query);
+        std::vector<Documento> obterRelevanciaQuery(std::string query);
 
     private:
         Indexador& _indexador;
