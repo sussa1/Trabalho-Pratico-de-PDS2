@@ -23,7 +23,6 @@ IndiceInvertido Leitor::obterIndiceInvertido() const {
     return indiceInvertido;
 }
 
-
 Documento Leitor::lerDocumento(std::string caminho, std::string nomeArquivo) {
     std::ifstream arqDocumento(caminho);
     std::stringstream stream;
