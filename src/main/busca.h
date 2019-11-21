@@ -9,7 +9,7 @@
 class Busca {
     public:
         //Constrói a estrutura de busca com base no indice invertido
-        Busca(IndiceInvertido indiceInvertido, Indexador& indexador);
+        Busca(IndiceInvertido& indiceInvertido, Indexador& indexador, std::vector<Documento>& documentos);
 
         //Retorna os documentos ordenados por relevancia para a busca 'query'
         /*
@@ -23,6 +23,9 @@ class Busca {
 
     private:
         Indexador& _indexador;
+        IndiceInvertido& _indiceInvertido;
+        std::vector<Documento>& _documentos;
+        
 };
 
 #endif //TRABALHO_PRATICO_PDS_2_SRC_BUSCA_H
