@@ -26,6 +26,7 @@ class Busca {
         Indexador& _indexador;
         IndiceInvertido& _indiceInvertido;
         std::vector<Documento>& _documentos;
+        friend class Teste;
         
 };
 
