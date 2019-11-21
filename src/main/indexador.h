@@ -6,6 +6,7 @@
 #include <map>
 #include "vetor.h"
 #include "indice_invertido.h"
+#include "documento.h"
 
 class Indexador {
     public:
