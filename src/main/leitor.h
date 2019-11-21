@@ -19,9 +19,9 @@ class Leitor {
     private:
         //Lê o documento
         Documento lerDocumento(std::string caminho, std::string nomeArquivo);
-
         int _proximoId;
         std::vector<Documento> _documentos;
+        friend class Teste;
 };
 
 #endif //TRABALHO_PRATICO_PDS_2_SRC_LEITOR_H

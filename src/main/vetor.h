@@ -9,6 +9,7 @@ class Vetor {
         Vetor(int dimensao);
 
         //Retorna uma referencia ao número de uma coordenada específica
+        //PRECONDIÇÃO: o número tem que ser diferente de zero
         double& operator[](int coord);
 
         //Retorna o produto interno dos dois vetores
