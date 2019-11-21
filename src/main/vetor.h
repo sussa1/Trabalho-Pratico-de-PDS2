@@ -12,7 +12,8 @@ class Vetor {
         double& operator[](int coord);
 
         //Retorna o produto interno dos dois vetores
-        Vetor operator*(const Vetor& v2);
+        //PRECONDIÇÃO: os vetores têm que possuir o mesmo tamanho
+        double operator*(const Vetor& v2);
 
         //Retorna a norma do vetor
         double norma() const;

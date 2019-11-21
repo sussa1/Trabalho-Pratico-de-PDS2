@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include "indice_invertido.h"
+#include "documento.h"
 
 class Leitor {
     public:
@@ -12,10 +13,15 @@ class Leitor {
         Leitor(std::string dir);
 
         // Retorna o indice invertido das palavras lidas dos documentos
-        IndiceInvertido obterFrequenciaPalavras() const;
+        IndiceInvertido& obterIndiceInvertido() const;
 
 
     private:
+        //Lê o documento
+        Documento lerDocumento(std::string caminho, std::string nomeArquivo);
+
+        int _id;
+        std::vector<Documento> _documento;
 };
 
 #endif //TRABALHO_PRATICO_PDS_2_SRC_LEITOR_H

@@ -31,7 +31,7 @@ bin/vetor.o: src/main/vetor.cpp
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
 bin/leitor.o: src/main/leitor.cpp
-	$(CXX) $(CXX_FLAGS) -c $^ -o $@
+	$(CXX) $(CXX_FLAGS) -I include/ -c $^ -o $@
 
 bin/util.o: src/main/util.cpp
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
