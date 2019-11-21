@@ -16,20 +16,20 @@ Busca::Busca(IndiceInvertido& indiceInvertido, Indexador& indexador, std::vector
     _documentos = documentos;
 }
 
-std::vector<std::string> Busca::obterRelevanciaQuery(std::string query){
+std::vector<Documento> Busca::obterRelevanciaQuery(std::string query){
     Vetor VetorQuery = _indexador.construirVetorQuery(query);
     Vetor VetorD_j(_indiceInvertido.obterTodasPalavras().size());
-    std::vector<std::tuple<double,std::string>> VetorSimilaridade;
+    std::vector<std::tuple<double,Documento>> VetorSimilaridade;
 
     for(Documento documento : _documentos){
         VetorD_j = _indexador.obterVetorDocumento(documento);
         double similaridade = (VetorD_j*VetorQuery) / (VetorD_j.norma()*VetorQuery.norma());
-        VetorSimilaridade.push_back(std::make_tuple(similaridade, documento.obterNomeDocumento()));
+        VetorSimilaridade.push_back(std::make_tuple(similaridade, documento));
     }
 
     std::sort(VetorSimilaridade.begin(),VetorSimilaridade.end());
 
-    std::vector<std::string> RelevanciaQuery(_documentos.size());
+    std::vector<Documento> RelevanciaQuery(_documentos.size());
 
     int i = 0;
     for(auto rit=VetorSimilaridade.rbegin(); rit!=VetorSimilaridade.rend(); ++rit){
