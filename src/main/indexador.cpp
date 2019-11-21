@@ -2,6 +2,7 @@
 #include "vetor.h"
 #include "util.h"
 #include "indice_invertido.h"
+#include "documento.h"
 #include <iostream>
 #include <vector>
 #include <map>
