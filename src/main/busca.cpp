@@ -10,10 +10,9 @@
 #include <algorithm>
 #include <tuple>
 
-Busca::Busca(IndiceInvertido& indiceInvertido, Indexador& indexador, std::vector<Documento>& documentos){
-    _indiceInvertido = indiceInvertido;
-    _indexador = indexador;
-    _documentos = documentos;
+Busca::Busca(IndiceInvertido& indiceInvertido, Indexador& indexador, std::vector<Documento>& documentos):_indexador(indexador), 
+    _indiceInvertido(indiceInvertido), _documentos(documentos){
+    
 }
 
 std::vector<Documento> Busca::obterRelevanciaQuery(std::string query){
