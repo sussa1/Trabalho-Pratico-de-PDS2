@@ -28,5 +28,5 @@ double Vetor::norma() const {
 }
 
 bool Vetor::operator==(const Vetor& x) const {
-    this -> _valoresVetor == x._valoresVetor;
+    return this -> _valoresVetor == x._valoresVetor;
 }

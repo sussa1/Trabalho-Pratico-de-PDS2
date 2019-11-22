@@ -16,24 +16,31 @@ teste: bin/teste
 	./bin/teste
 
 bin/indexador.o: src/main/indexador.cpp
+	mkdir -p bin
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
 bin/indice_invertido.o: src/main/indice_invertido.cpp
+	mkdir -p bin
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
 bin/documento.o: src/main/documento.cpp
+	mkdir -p bin
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
 bin/busca.o: src/main/busca.cpp
+	mkdir -p bin
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
 bin/vetor.o: src/main/vetor.cpp
+	mkdir -p bin
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
 bin/leitor.o: src/main/leitor.cpp
+	mkdir -p bin
 	$(CXX) $(CXX_FLAGS) -I include/ -c $^ -o $@
 
 bin/util.o: src/main/util.cpp
+	mkdir -p bin
 	$(CXX) $(CXX_FLAGS) -c $^ -o $@
 
 bin/main: bin/documento.o bin/indice_invertido.o bin/indexador.o bin/util.o bin/busca.o bin/vetor.o bin/leitor.o src/main/main.cpp	
