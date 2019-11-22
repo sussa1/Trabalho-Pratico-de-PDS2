@@ -13,6 +13,10 @@ using namespace ghc;
 Leitor::Leitor(std::string dir) {
     _proximoId = 0;
     _documentos.clear();
+    if(!filesystem::exists(dir)) {
+        std::cout << "Diretório inválido" << std::endl;
+        exit(0);
+    }
     for(const auto& entrada : filesystem::recursive_directory_iterator(dir)) {
         if(!filesystem::is_directory(entrada.status())) {
             _documentos.push_back(lerDocumento(entrada.path(), entrada.path().filename()));
