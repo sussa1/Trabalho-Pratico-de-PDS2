@@ -22,7 +22,12 @@ std::vector<Documento> Busca::obterRelevanciaQuery(std::string query){
 
     for(Documento documento : _documentos){
         vetorD_j = _indexador.obterVetorDocumento(documento);
-        double similaridade = (vetorD_j*vetorQuery) / (vetorD_j.norma()*vetorQuery.norma());
+        double num = (vetorD_j*vetorQuery);
+        double den = (vetorD_j.norma()*vetorQuery.norma());
+        double similaridade = 0;
+        if(den != 0) {
+            similaridade = num / den;
+        }
         vetorSimilaridade.push_back(std::make_pair(similaridade, documento));
     }
 
