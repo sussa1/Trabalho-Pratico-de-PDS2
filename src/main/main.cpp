@@ -25,7 +25,8 @@ int main() {
     Leitor leitor(dir);
     IndiceInvertido indiceInvertido = leitor.obterIndiceInvertido();
     Indexador indexador(indiceInvertido);
-    Busca busca(.obterIndiceInvertido(), indexador, leitor.obterDocumentosLidos());
+    std::vector<Documento> documentos = leitor.obterDocumentosLidos();
+    Busca busca(indiceInvertido, indexador, documentos);
     int numeroDocumentosMostrados;
     std::cout << "Digite quantos documentos serao retornados por query: ";
     std::cin >> numeroDocumentosMostrados;
