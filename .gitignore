@@ -33,3 +33,6 @@
 
 # Bin dir
 bin/*
+
+# Dados de teste
+dados/*
