@@ -15,7 +15,8 @@ class Leitor {
         // Retorna o indice invertido das palavras lidas dos documentos
         IndiceInvertido obterIndiceInvertido() const;
 
-
+        // Retorna os documentos lidos
+        std::vector<Documento> obterDocumentosLidos();
     private:
         //Lê o documento
         Documento lerDocumento(std::string caminho, std::string nomeArquivo);

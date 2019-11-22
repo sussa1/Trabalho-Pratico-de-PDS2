@@ -37,3 +37,7 @@ Documento Leitor::lerDocumento(std::string caminho, std::string nomeArquivo) {
     _proximoId++;
     return documento;
 }
+
+std::vector<Documento> Leitor::obterDocumentosLidos() {
+    return _documentos;
+}

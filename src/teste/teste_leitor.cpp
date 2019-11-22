@@ -67,6 +67,15 @@ TEST_SUITE("Leitor") {
         CHECK(indice.obterNumeroDocumentosRegistrados() == 3);
     }
 
+    TEST_CASE("obterDocumentosLidos()") {
+        Leitor leitor("src/teste/dados_teste");
+        std::vector<Documento> documentos = leitor.obterDocumentosLidos();
+        REQUIRE(documentos.size() == 3);
+        CHECK(documentos[0].obterIdDocumento() == 0);
+        CHECK(documentos[1].obterIdDocumento() == 1);
+        CHECK(documentos[2].obterIdDocumento() == 2);
+    }
+
     TEST_CASE("lerDocumento(std::string caminho, std::string nomeArquivo)") {
         Leitor leitor("src/teste/dados_teste");
         Documento documento = Teste::lerDocumento(leitor, "src/teste/dados_teste/d1.txt", "d4");

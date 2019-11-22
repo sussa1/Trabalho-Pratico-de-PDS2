@@ -23,8 +23,9 @@ std::string lerDiretorio() {
 int main() {
     std::string dir = lerDiretorio();
     Leitor leitor(dir);
-    Indexador indexador(leitor.obterIndiceInvertido());
-    Busca busca(leitor.obterIndiceInvertido(), indexador);
+    IndiceInvertido indiceInvertido = leitor.obterIndiceInvertido();
+    Indexador indexador(indiceInvertido);
+    Busca busca(.obterIndiceInvertido(), indexador, leitor.obterDocumentosLidos());
     int numeroDocumentosMostrados;
     std::cout << "Digite quantos documentos serao retornados por query: ";
     std::cin >> numeroDocumentosMostrados;
