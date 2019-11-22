@@ -13,16 +13,15 @@ using namespace ghc;
 Leitor::Leitor(std::string dir) {
     _proximoId = 0;
     _documentos.clear();
-    for(const auto& entrada : filesystem::directory_iterator(dir)) {
-        if(filesystem::is_directory(entrada.status())) {
+    for(const auto& entrada : filesystem::recursive_directory_iterator(dir)) {
+        if(!filesystem::is_directory(entrada.status())) {
             _documentos.push_back(lerDocumento(entrada.path(), entrada.path().filename()));
         }
     }
 }
 
-IndiceInvertido& Leitor::obterIndiceInvertido() const {
-    IndiceInvertido indiceInvertido = IndiceInvertido(_documentos);
-    return indiceInvertido;
+IndiceInvertido Leitor::obterIndiceInvertido() const {
+    return IndiceInvertido(_documentos);
 }
 
 Documento Leitor::lerDocumento(std::string caminho, std::string nomeArquivo) {
@@ -31,6 +30,7 @@ Documento Leitor::lerDocumento(std::string caminho, std::string nomeArquivo) {
     //Converte arquivo para string
     stream << arqDocumento.rdbuf();
     std::string conteudoArquivo = stream.str();
+    std::replace(conteudoArquivo.begin(), conteudoArquivo.end(), '\n', ' ');
     conteudoArquivo = Util::RemoverCaracteresEspeciaisString(conteudoArquivo);
     conteudoArquivo = Util::TransformarEmMinusculo(conteudoArquivo);
     Documento documento(_proximoId, nomeArquivo, Util::SepararStringPorPalavra(conteudoArquivo));

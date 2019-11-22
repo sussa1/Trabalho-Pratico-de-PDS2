@@ -31,10 +31,6 @@ class Teste {
         }
 };
 
-bool operator==(const Vetor& x, const Vetor& y) {
-  return Teste::DadosVetor(x) == Teste::DadosVetor(y);
-}
-
 double converterParaDuasCasasDecimais(double n) {
     long long i = n*100;
     return (double)i/100;

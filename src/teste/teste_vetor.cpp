@@ -5,7 +5,7 @@
 
 class Teste {
     public:
-        static std::vector<double> valoresVetor(const Vetor& v) {
+        static std::vector<double>& valoresVetor(Vetor& v) {
             return v._valoresVetor;
         }
 };
@@ -39,12 +39,12 @@ TEST_SUITE("Vetor") {
     }
 
     TEST_CASE("double operator*(const Vetor& v2)") {
-        
+
         SUBCASE("vetores de dimensão 1") {
             Vetor v1(1);
             Teste::valoresVetor(v1)[0] = 1;
             Vetor v2(1);
-            Teste::valoresVetor(v2)[1] = 1;
+            Teste::valoresVetor(v2)[0] = 1;
             double vr = v1 * v2;
             CHECK(vr == 1);
         }

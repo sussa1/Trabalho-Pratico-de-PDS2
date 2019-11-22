@@ -18,6 +18,10 @@ class Vetor {
 
         //Retorna a norma do vetor
         double norma() const;
+
+        //Compara dois vetores
+        bool operator==(const Vetor& x) const;
+
     private:
         std::vector<double> _valoresVetor;
         friend class Teste;
